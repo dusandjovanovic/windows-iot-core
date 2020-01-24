@@ -14,6 +14,10 @@ Menadžment | MDM | MDM
 Podržana arhitektura aplikacija | UWP | UWP, WinForms, etc.
 Podržana arhitektura procesora | x86, x64 i ARM | x86 i x64
 
+**Napomena: Demo aplikacija je razvijana i testirana u Microsoft-ovom okruženju i korišćeni su alati poput Azure Hub-a i Raspberry Pi Microsoft simulatora. Testbed okruženje Fit IoT-Lab nije korišćeno jer ne podržava Windows IoT Core.**
+
+https://www.iot-lab.info/operating-systems/
+
 ### Razlike u odnosu na Windows 10 Desktop
 
 Može se reći da je **Windows 10 IoT Core** ograničen u odnosu na desktop verziju Windows-a 10. Uređaji boot-uju u takozvanu *Default aplikaciju* koja je interaktivna (poput UI Shell-a) i otvorenog koda pa se može koristiti kao osnova za razvijanje aplikacija.
