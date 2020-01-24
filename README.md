@@ -155,6 +155,21 @@ Povezivanje uređaja *Azure IoT Device SDK* bibliotekama omogućava razvijanje a
 
 #### Raspberry Pi
 
+Najosnovnije povezivanje Raspberry Pi uređaja na Azure Hub se svodi na njegovu registraciju i slanje podataka sa senzora na cloud. Potrebno je pokrenuti uređaj i razviti minimalnu aplikaciju koja će slati informacije sa senzora.
+
+Neke od neophodnih stvari:
+* Raspberry Pi 2 ili 3 ploča, napajanje za ploču
+* microSD kartica na koju će se dodati Operativni sistem
+* BME280 senzor temperature, pritiska ili vlažnosti vazduha
+
+Uređaj je potrebno registrovati na prethodno napravljen Azure Hub. Celokupna procedura je objašnjena [na stranici znanične dokumentacije](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
+
+Nakon registracije treba instalirati **Raspbian operativni sistem** na uređaju i izvršiti neophodna podešavanja mrežnih parametara. Senzor koji će prikupljati podatke treba zatim povezati na Raspberry Pi. Na kraju jedino preostaje pokretanje aplikacije.
+
 #### Raspberry Pi simulator
+
+Moguće je napraviti simulaciju Raspberry Pi uređaja i povezati je na Hub. Senzori mogu da budu simulirani i podaci sa uređaja se mogu iskoristiti za demo prototip aplikaciju. Simulator je dostupan [ovde](https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted).
+
+Podrazumevano je na ploču povezan **BME280 senzor** i LED dioda. Dozvoljeno je menjati kod aplikacije koja se izvršava.
 
 ## Demo aplikacija
