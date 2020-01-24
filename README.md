@@ -1,2 +1,9 @@
-# windows-iot-core
-Overview of Windows 10 IoT Core and it's architecture. Example Raspberry Pi project.
+# Windows 10 IoT Core - Arhitektura, komponente i razvoj IoT aplikacija
+
+## Arhitektura
+
+## Komponente
+
+## Podrška u razvoju aplikacija
+
+## Demo aplikacija
