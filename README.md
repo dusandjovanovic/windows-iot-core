@@ -95,4 +95,24 @@ Veoma zastupljen problem IoT uređaja je promena verzija firmware-a. Proizvodja�
 
 ## Podrška u razvoju aplikacija
 
+### Azure IoT Hub
+
+**Azure IoT Hub** je servis hostovan na cloud-u koji se koristi kao centralizovani hub poruka za komunikaciju između IoT aplikacije i uređaja kojim ona upravlja. Ima smisla upotrebiti ga zbog sigurnih i stabilnih **dvosmernih komunikacija** između velikog broja uređaja i backend-a na koji se svi uređaji oslanjaju i sa kojim se pritom sinhronizuju. **IoT Hub Monitoring** se može koristiti za praćenje statusa sistema i vođenje evidencije o kritičnim događajima. IoT Hub je skalabilan do više miliona simultano povezanih uređaja. 
+
+**Sigurni komunikacioni kanali** omogućavaju:
+* Autentifikaciju na nivou svakog uređaja prilikom ostvarivanja veze sa cloud-om
+* Kontrola pristupa uređaju, kao i kontrola otvorenih konekcija
+* Više načina autentifikacije
+  * SAS token-based
+  * Individual X.509 certificate
+  * X.509 CA authentication
+
+Integracija je moguća sa drugim Azure servisima poput *Azure Event Grid-a* ili *Azure Machine Learning-a*. Takođe, konfiguracija uređaja (u smislu promene stanja, pre svega) na pojedinačnom nivou ili na grupnom. Konfiguracija može biti vođena događajima. Moguće je podešavanje odgovora u vidu slanja poruka koje se rutiraju do neke backend tačke u određenim situacijama.
+
+Povezivanje uređaja *Azure IoT Device SDK* bibliotekama omogućava razvijanje aplikacija nad uređajima koji su u Hub-u. Podržano je više platformi poput Windows ili Linux operativnih sistema, kao i više različitih programskih jezika. Mogu se koristiti različiti protokoli za komunikaciju sa Hub-om kao što su HTTPS ili pak WebSocket.
+
+### Raspberry Pi simulator
+
+
+
 ## Demo aplikacija
