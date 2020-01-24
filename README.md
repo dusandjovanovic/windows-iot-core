@@ -172,4 +172,8 @@ Moguće je napraviti simulaciju Raspberry Pi uređaja i povezati je na Hub. Senz
 
 Podrazumevano je na ploču povezan **BME280 senzor** i LED dioda. Dozvoljeno je menjati kod aplikacije koja se izvršava.
 
+![alt text][raspberry-simulator]
+
+[raspberry-simulator]: meta/raspberry-simulator.png
+
 ## Demo aplikacija
