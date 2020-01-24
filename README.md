@@ -168,12 +168,14 @@ Nakon registracije treba instalirati **Raspbian operativni sistem** na uređaju 
 
 #### Raspberry Pi simulator
 
-Moguće je napraviti simulaciju Raspberry Pi uređaja i povezati je na Hub. Senzori mogu da budu simulirani i podaci sa uređaja se mogu iskoristiti za demo prototip aplikaciju. Simulator je dostupan [ovde](https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted).
+Moguće je napraviti simulaciju Raspberry Pi uređaja i povezati je na IoT Hub. Senzori mogu da budu simulirani i podaci sa uređaja se mogu iskoristiti za prototip aplikaciju. Simulator je dostupan [ovde](https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted).
 
 Podrazumevano je na ploču povezan **BME280 senzor** i LED dioda. Dozvoljeno je menjati kod aplikacije koja se izvršava.
 
 ![alt text][raspberry-simulator]
 
 [raspberry-simulator]: meta/raspberry-simulator.png
+
+Ovako simulirani uređaj sa predefinisanim izvršnim kodom se može registrovari na Azure IoT Hub zarad testiranja.
 
 ## Demo aplikacija
