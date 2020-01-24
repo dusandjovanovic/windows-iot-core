@@ -38,9 +38,41 @@ Kako IoT uređaji postaju važniji tako je i veća potreba za njihovim upravljen
 
 ### Internet of Things - Osnovna arhitektura sistema
 
+IoT arhitektura je sistem brojnih elemenata poput senzora, aktuatora, protokola, cloud servisa i drugih. Zbog ove kompleksnosti, predložena su **četiri faze ove arhitekture**. Arhitektura mora da podrži osovne zahteve ovih sistema - odnosno dostupnost, održivost i skalabilnost.
+
+U osnovi, postoje tri sloja:
+* Klijentska strana (IoT Device Layer)
+* Operatori na serverskoj strani (IoT Getaway Layer)
+* Povezivanje klijenata i operatora (IoT Platform Layer)
+
+
 ![alt text][architecture-iot]
 
 [architecture-iot]: meta/architecture-iot.jpg
+
+Faze, koje potkrepljuju arhitekturu su redom:
+* Senzori i aktuatori
+* Internet gateway-i i sistemi prikupljanja podataka
+* Edge IT
+* Centri za skladištenje podataka i cloud
+
+#### Prva faza. Umreženi uređaji (wireless senzori i aktuatori)
+
+Osnovni zadatak senzora je da prikupljaju stvarne informacije i pretvaraju ih u podatke za dalju analizu. Zbog ovoga su u prvoj fazi, uslove treba transformisati u podatke koji mogu da se obrađuju. Aktuatori, sa druge strane, mogu da menjaju fizičke uslove poput gašenja svetla ili promene temperature.
+
+Faza osluškivanja (sensing) i aktuacije (actuating) pokriva sve što je potrebno u fizičkom svetu kako bi se dobili podaci za dalje faze. 
+
+#### Druga faza. Sistemi za agregaciju podataka sa senzora i analogno-digitalna konverzija
+
+Data acquisition sistemi (DAS) se povezuju na mrežu senzora i agregiraju njen izlaz. Gateway sistemi rade na nivou LAN ili bežičnih mreža i doprinose daljim procesiranjem. Ideja je kompresovati obimne količine podataka koji se dobijaju sa senzora na skup podataka koji je lakše obradiv u sledećoj fazi.
+
+#### Treća faza. Edge IT sistemi
+
+Ovo je faza kada se podaci iz fizičkog sveta prenose u IT svet. Posebno, IT Edge sistemi vrše analitike i pred-procesiranje pristuglih podataka. Svo pred-procesiranje pre ulaska u centre podataka se dešava ovde. Mogu se koristiti različite tehnike, poput mašinskog učenja i sličnih.
+
+#### Četvrta faza. Analiza, upravljanje i skladištenje podataka
+
+Poslednja faza se dešava u centru podataka ili cloud-u. Ove dolazi do in-depth analiza podataka uz revizije ukoliko je potrebno. Podaci se skladište u širokom i pouzdanom ekosistemu. Na kraju, uređeni i procesirani podaci se dovode u fizičko okruženje.
 
 ### Image sistema
 
