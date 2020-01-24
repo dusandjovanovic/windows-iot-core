@@ -2,7 +2,7 @@
 
 **Windows 10 IoT** je familija operativnih sistema dizajniranih za embedded uređaje. **Windows 10 IoT Core** je jedan od ovih sistema i namenjen je manjim low-cost uređajima, jedan od primera je *Raspberry Pi*. Ovaj operativni sistem približava enterptise nivo performansi, sigurnost i povezanost na cloud IoT uređajima. Jedna od osnovnih ideja je pružanje mogućnosti izrade više odvojenih uređaja u ekosistemu i njihovu povezanost i sinhronizaciju preko cloud-a.
 
-**Windows 10 IoT Core** je ujedno i sistem najmanjeg obima od ostalih iz ove familije. Na primer, dozvoljeno je pokretanje jedne aplikacije, za razliku od **Windows 10 IoT Enterprise** sistema koji je puna verzija Windows-a 10 prilagođena izradi aplikacija za menje periferne uređaje.
+**Windows 10 IoT Core** je ujedno i sistem najmanjeg obima od ostalih iz ove familije. Ovo je verzija Windows-a 10 projektovana za pokretanje na ARM i x86/x64 uređajima. Postoje ograničenja u odnosu na ostale verzije. Na primer, dozvoljeno je pokretanje jedne aplikacije, za razliku od **Windows 10 IoT Enterprise** sistema koji je puna verzija Windows-a 10 prilagođena izradi aplikacija za  periferne uređaje.
 
 Evo pregleda ključnih razlika (ili ograničenja) ova dva sistema:
 
@@ -26,8 +26,12 @@ Može se reći da je **Windows 10 IoT Core** ograničen u odnosu na desktop verz
 
 ### IoT Shell
 
-Svaki **IoT Core uređaj** se izvršava nad `IoT Shell-om`.
-  
+Svaki **IoT Core uređaj** se izvršava nad `IoT Shell-om`. Osnovno zaduženje je pokretanje aplikacija i može se izvršavati u dva moda - Headed i Headless. U Headed modu se izvršava na uređaju koji ima displej i jedna aplikacija se pokreće u fullscreen-u. U Headless modu se izvršavaju jedino pozadinske aplikacije.
+
+**Foreground aplikacije** poseduju korisnički interfejs, jedna se pokreće prilikom boot-ovanja i korisnik može da bira koja će se još pokrenuti od svih registrovanih aplikacija. Ove aplikacije se izvršavaju u Headed modu. **Background aplikacije** nemaju UI i ne zahtevaju displej, često se izvršavaju sve vreme dok je uređaj uključen. Izvršavaju se u Headless modu i često se koriste za monitoring i slično.
+
+Jedan od načina za **switching između aplikacija** je HID Injection. Postoji više hotkey-eva poput `Home`, `Previous app` ili `Next app`  koji se koriste za promenu aplikacija i navigaciju između njih.
+
 ## Arhitektura
 
 ## Komponente
