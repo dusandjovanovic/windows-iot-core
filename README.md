@@ -111,8 +111,8 @@ Integracija je moguća sa drugim Azure servisima poput *Azure Event Grid-a* ili 
 
 Povezivanje uređaja *Azure IoT Device SDK* bibliotekama omogućava razvijanje aplikacija nad uređajima koji su u Hub-u. Podržano je više platformi poput Windows ili Linux operativnih sistema, kao i više različitih programskih jezika. Mogu se koristiti različiti protokoli za komunikaciju sa Hub-om kao što su HTTPS ili pak WebSocket.
 
-### Raspberry Pi simulator
+#### Raspberry Pi
 
-
+#### Raspberry Pi simulator
 
 ## Demo aplikacija
