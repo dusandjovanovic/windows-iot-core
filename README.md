@@ -4,7 +4,7 @@
 
 **Windows 10 IoT Core** je ujedno i sistem najmanjeg obima od ostalih iz ove familije. Ovo je verzija Windows-a 10 projektovana za pokretanje na ARM i x86/x64 uređajima. Postoje ograničenja u odnosu na ostale verzije. Na primer, dozvoljeno je pokretanje jedne aplikacije, za razliku od **Windows 10 IoT Enterprise** sistema koji je puna verzija Windows-a 10 prilagođena izradi aplikacija za  periferne uređaje.
 
-Evo pregleda ključnih razlika (ili ograničenja) ova dva sistema:
+Pregled ključnih razlika (ili ograničenja) ova dva sistema:
 
 Mogućnosti | Windows 10 IoT Core | Windows 10 IoT Enterprise
 --- | --- | ---
