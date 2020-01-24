@@ -36,6 +36,12 @@ Jedan od načina za **switching između aplikacija** je HID Injection. Postoji v
 
 Kako IoT uređaji postaju važniji tako je i veća potreba za njihovim upravljenjem i sigurnošću. IoT se ne ograničava samo na uređaje već podrazumeva i ekosistem, odnosno servise na koje su povezani. Iz ovih razloga su važni operativni sistemi razvijeni sa IoT uređajima na umu - jedan od ovih sistema (familija sistema, tačnije) je **Windows 10 IoT**.
 
+### Internet of Things - Osnovna arhitektura sistema
+
+![alt text][architecture-iot]
+
+[architecture-iot]: meta/architecture-iot.jpg
+
 ### Image sistema
 
 Image-i ovog sistema su u Fast Flash Update (FFU) formatu. Detalji ovog formata mogu se pogledati [ovde](https://docs.microsoft.com/en-us/windows-hardware/manufacture/mobile/ffu-image-format?redirectedfrom=MSDN). Windows 10 IoT Core koristi V2 ovog formata.
