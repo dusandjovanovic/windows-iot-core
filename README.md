@@ -223,7 +223,7 @@ Uokviru okruženja je moguće build-ovati aplikacije za arhitekture:
 * `ARM`
 * `x86/x64`
 
-Proces debagiranja se može raditi **lokalno na mašini u simulatoru** gde se aplikacija izvršava u `sandbox-u` lokalnog operativnog sistema kao i svaka druga UWP aplikacija. Jedina je razlika u tome što se u sandboxu sistem nalazi u `Embedded mod-u`. Pristup je moguć svim senzorima i uređajima koji su na mašini, poput web-kamere i simulatori su pogodni za rano testiranje prototipa.
+Proces debagiranja se može raditi **lokalno na mašini u simulatoru** gde se aplikacija izvršava u `sandbox-u` lokalnog operativnog sistema kao i svaka druga UWP aplikacija. Jedina je razlika u tome što se u sandboxu sistem nalazi u `Embedded mod-u`. Pristup je moguć svim senzorima i uređajima koji su na mašini, poput web-kamere. Simulatori su pogodni za rano testiranje prototipa.
 
 Sa druge strane, ukoliko je uređaj povezan, može se vršiti deployment aplikacija direktno na uređaj (npr. Raspberry Pi). Tada se mogu očitavati svi senzori i prisupati aktuatorima stvarnog uređaja.
 
