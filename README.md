@@ -52,7 +52,7 @@ U osnovi, postoje tri sloja:
 
 ![alt text][architecture-iot]
 
-[architecture-iot]: meta/architecture-iot.jpg
+[architecture-iot]: meta/architecture-iot.png
 
 Faze, koje potkrepljuju arhitekturu su redom:
 * Senzori i aktuatori
