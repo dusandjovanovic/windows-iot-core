@@ -186,5 +186,29 @@ Ovako simulirani uređaj sa predefinisanim izvršnim kodom se može registrovari
 
 Podešavanje uređaja i instalacija *image-a* Windows 10 IoT Core vrši se kroz softver **IoT Dashboard**.
 
+![alt text][iot-dashboard]
+
+[iot-dashboard]: meta/iot-dashboard.jpg
+
+Osnovna podešavanja uređaja se setuju iz softvera, ovo podrazumeva i mrežu na koju će se povezati Raspberry Pi uređaj. Treba precizirati drajv na kome se nalazi SD-kartica koja će se flešovati sistemom.
+
+![alt text][iot-dashboard-installation]
+
+[iot-dashboard-installation]: meta/iot-dashboard-installation.jpg
+
+Nakon toga, image sistema se instalira na SD-kartici i može se preći na uređaj.
+
+1) Prvo treba povezati micro USB kablom napajanje
+2) Da bi uređaj bio u **headed** modu treba povezati HDMI kablom monitor
+3) Flešovanu SD-karticu sa Windows sistemom treba staviti u slot uređaja
+4) Pokrenuti uređaj
+
+![alt text][iot-raspberry-pi]
+
+[iot-raspberry-pi]: meta/iot-raspberry-pi.jpg
+
+Nakon podizanja sistema dolazi se do početnog ekrana, kao što je već pomenuto na njemu se može izvršavati jedna aplikacija. Odavde je moguće raditi deployment i debagiranje aplikacija direktno iz  **Visual studio okruženja**, s obzirom da je poznata adresa uređaja.
+
+### Visual studio kao razvojno okruženje
 
 ## Demo aplikacija
