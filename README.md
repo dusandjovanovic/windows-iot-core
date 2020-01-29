@@ -153,6 +153,10 @@ Integracija je moguća sa drugim Azure servisima poput *Azure Event Grid-a* ili 
 
 Povezivanje uređaja *Azure IoT Device SDK* bibliotekama omogućava razvijanje aplikacija nad uređajima koji su u Hub-u. Podržano je više platformi poput Windows ili Linux operativnih sistema, kao i više različitih programskih jezika. Mogu se koristiti različiti protokoli za komunikaciju sa Hub-om kao što su HTTPS ili pak WebSocket.
 
+#### Azure IoT Edge
+
+**Azure IoT Edge** je servis koji se može izvršavati nad **Azure IoT Hub-om** embedded uređaja. Koristi se za deployment i rasoređivanje posla nad Hub-om više uređaja. Neki od primera su veštačka inteligencija ili pak biznis logika koji se izvršavaju na uređajima u vidu kontejnera. Ovakvi poslovi se guraju na "edge" sistema gde se izvršavaju i imaju jasnu svrhu. Podaci ne moraju da se procesiraju u cloud-u već odmah na uređaju oslanjajući se na njihov hardver što daje visok nivo real-time performansi.
+
 #### Raspberry Pi
 
 Najosnovnije povezivanje Raspberry Pi uređaja na Azure Hub se svodi na njegovu registraciju i slanje podataka sa senzora na cloud. Potrebno je pokrenuti uređaj i razviti minimalnu aplikaciju koja će slati informacije sa senzora.
