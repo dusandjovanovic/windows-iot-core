@@ -42,7 +42,7 @@ Kako IoT uređaji postaju važniji tako je i veća potreba za njihovim upravljen
 
 ### Internet of Things - Osnovna arhitektura sistema
 
-IoT arhitektura je sistem brojnih elemenata poput senzora, aktuatora, protokola, cloud servisa i drugih. Zbog ove kompleksnosti, predložena su **četiri faze ove arhitekture**. Arhitektura mora da podrži osovne zahteve ovih sistema - odnosno dostupnost, održivost i skalabilnost.
+IoT arhitektura je sistem brojnih elemenata poput senzora, aktuatora, protokola, cloud servisa i drugih. Zbog ove kompleksnosti, predložena su **četiri faze ove arhitekture**. Arhitektura mora da podrži osovne zahteve ovih sistema - odnosno dostupnost, održivost i skalabilnost. Raznolikost uređaja u ovakvim sistemima je nametnula potrebu za jasno definisanom arhitekturom.
 
 U osnovi, postoje tri sloja:
 * Klijentska strana (IoT Device Layer)
@@ -62,21 +62,27 @@ Faze, koje potkrepljuju arhitekturu su redom:
 
 #### Prva faza. Umreženi uređaji (wireless senzori i aktuatori)
 
-Osnovni zadatak senzora je da prikupljaju stvarne informacije i pretvaraju ih u podatke za dalju analizu. Zbog ovoga su u prvoj fazi, uslove treba transformisati u podatke koji mogu da se obrađuju. Aktuatori, sa druge strane, mogu da menjaju fizičke uslove poput gašenja svetla ili promene temperature.
+Senzori su izvor stvarnih podataka i mogu biti embeddovani u uređajima ili odvojeni kao posebni objekti. Primer senzora su merači pritiska ili pak temperature. Osnovni zadatak senzora je da prikupljaju stvarne informacije i pretvaraju ih u podatke za dalju analizu. Zbog ovoga su u prvoj fazi, uslove treba transformisati u podatke koji mogu da se obrađuju. Aktuatori, sa druge strane, mogu da menjaju fizičke uslove poput gašenja svetla ili promene temperature. Zadatak aktuatora je da transformišu podatke u akcije. Faza osluškivanja (sensing) i aktuacije (actuating) pokriva sve što je potrebno u fizičkom svetu kako bi se dobili podaci za dalje faze.
 
-Faza osluškivanja (sensing) i aktuacije (actuating) pokriva sve što je potrebno u fizičkom svetu kako bi se dobili podaci za dalje faze. 
+Ono što je važno pored dvosmerne komunikacije sa ostalim slojevima (cloud-om, na kraju) jeste i interkomunkacija između uređaja u vidu razmene podataka koje oni poseduju. S obzirom da je komunikacija od posebne važnosti postoje posebni low-power protokoli za razmenu informacija koji to omogućuju o malom trošku energije.
 
 #### Druga faza. Sistemi za agregaciju podataka sa senzora i analogno-digitalna konverzija
 
-Data acquisition sistemi (DAS) se povezuju na mrežu senzora i agregiraju njen izlaz. Gateway sistemi rade na nivou LAN ili bežičnih mreža i doprinose daljim procesiranjem. Ideja je kompresovati obimne količine podataka koji se dobijaju sa senzora na skup podataka koji je lakše obradiv u sledećoj fazi.
+Data acquisition sistemi (DAS) se povezuju na mrežu senzora i agregiraju njen izlaz u vidu pred-procesiranja sirovih podataka. Gateway sistemi rade na nivou LAN ili bežičnih mreža i doprinose tako što prave bundle-ove podataka za dalje nivoe. Ideja je kompresovati obimne količine podataka koji se dobijaju sa senzora na skup podataka koji je lakše obradiv u sledećoj fazi. Ovaj sloj spaja najniži sloj fizičkih uređaja i viši sloj obrade podataka. Kako se nalazi između OT i IT sistema, gateway omogućava komunikaciju između senzora i ostatka sistema konvertujući pročitane podatke u oblik razumljiv višim slojevima. Takođe, filterovanjem prikupljenih podataka se dobija manji obim istih i smanjuje opterećenje cloud-a.
 
-#### Treća faza. Edge IT sistemi
+Još jedan zadatak ovog sloja je sigurnost u vidu enkripcije podataka koji se razmenjuju između slojeva, tako da ne može doći do curenja podataka iz IoT sistema.
+
+#### Treća faza. Edge IT analytics sistemi
 
 Ovo je faza kada se podaci iz fizičkog sveta prenose u IT svet. Posebno, IT Edge sistemi vrše analitike i pred-procesiranje pristuglih podataka. Svo pred-procesiranje pre ulaska u centre podataka se dešava ovde. Mogu se koristiti različite tehnike, poput mašinskog učenja i sličnih.
 
+Ovaj sloj ne mora da bude deo svake IoT arhitekture i donosi poboljšanje u large-scale sistemima. Kako u IoT cloud sistemima postoji ograničenje u brzini transfera podataka, Edge sistemi mogu da ponude brže vreme obrade i kraća vremena odziva. Kako infrastruktura ovog sloja može da bude fizički bliža uređajima, lakše je i brže pristupiti podacima. U ovom slučaju, jedino najveći obim podataka se prosleđuje na cloud za dalju obradu.
+
 #### Četvrta faza. Analiza, upravljanje i skladištenje podataka
 
-Poslednja faza se dešava u centru podataka ili cloud-u. Ove dolazi do in-depth analiza podataka uz revizije ukoliko je potrebno. Podaci se skladište u širokom i pouzdanom ekosistemu. Na kraju, uređeni i procesirani podaci se dovode u fizičko okruženje.
+Poslednja faza se dešava u centru podataka ili cloud-u. Ovde dolazi do detaljnijih ili *in-depth* analiza podataka uz revizije. Podaci se skladište u širokom i pouzdanom ekosistemu. Harvder cloud-a koji je na raspolaganju nudi mogučnost obrade velikih količina podataka, znatno većih od Edge sistema. Ovde su na raspolaganju endžini za analizu podataka, kao i mehanizmi mašinskog učenja. Na kraju, uređeni i procesirani podaci se dovode u fizičko okruženje.
+
+Ako se cloud dopuni aplikativnim pregledom, mogu se ponuditi opcije prezentacije i pregleda podataka ili pak *business intelligence*. Ovakvi sistemi pružaju interakciju sa podacima, pregled izveštaja, donošenje odluka i akcija na osnovu podataka i slično - sve ovo je u realnom vremenu.
 
 ### Image sistema
 
