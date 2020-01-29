@@ -14,7 +14,7 @@ Menadžment | MDM | MDM
 Podržana arhitektura aplikacija | UWP | UWP, WinForms, etc.
 Podržana arhitektura procesora | x86, x64 i ARM | x86 i x64
 
-**Napomena: Demo aplikacija je razvijana i testirana u Microsoft-ovom okruženju i korišćeni su alati poput Azure Hub-a i Raspberry Pi Microsoft simulatora. Testbed okruženje Fit IoT-Lab nije korišćeno jer ne podržava Windows IoT Core.**
+**Napomena: Demo aplikacija je razvijana i testirana u Microsoft-ovom okruženju i korišćeni su lokalni simualtori (gde se sistem izvršava u `Embedded modu`). Testbed okruženje Fit IoT-Lab nije korišćeno jer ne podržava Windows IoT Core.**
 
 https://www.iot-lab.info/operating-systems/
 
@@ -168,8 +168,6 @@ Neke od neophodnih stvari:
 
 Uređaj je potrebno registrovati na prethodno napravljen Azure Hub. Celokupna procedura je objašnjena [na stranici znanične dokumentacije](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 
-Nakon registracije treba instalirati **Raspbian operativni sistem** na uređaju i izvršiti neophodna podešavanja mrežnih parametara. Senzor koji će prikupljati podatke treba zatim povezati na Raspberry Pi. Na kraju jedino preostaje pokretanje aplikacije.
-
 #### Raspberry Pi simulator
 
 Moguće je napraviti simulaciju Raspberry Pi uređaja i povezati je na IoT Hub. Senzori mogu da budu simulirani i podaci sa uređaja se mogu iskoristiti za prototip aplikaciju. Simulator je dostupan [ovde](https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted).
@@ -180,7 +178,7 @@ Podrazumevano je na ploču povezan **BME280 senzor** i LED dioda. Dozvoljeno je 
 
 [raspberry-simulator]: meta/raspberry-simulator.png
 
-Ovako simulirani uređaj sa predefinisanim izvršnim kodom se može registrovari na Azure IoT Hub zarad testiranja.
+Ovako simulirani uređaj sa predefinisanim izvršnim kodom se može registrovari na Azure IoT Hub zbog daljeg testiranja.
 
 #### Instalacija Windows IoT-a na uređaju
 
@@ -210,5 +208,21 @@ Nakon toga, image sistema se instalira na SD-kartici i može se preći na uređa
 Nakon podizanja sistema dolazi se do početnog ekrana, kao što je već pomenuto na njemu se može izvršavati jedna aplikacija. Odavde je moguće raditi deployment i debagiranje aplikacija direktno iz  **Visual studio okruženja**, s obzirom da je poznata adresa uređaja.
 
 ### Visual studio kao razvojno okruženje
+
+Kako Windows 10 IoT Core podržava UWP aplikacije, za razvijanje je najpogodnije koristiti **Microsoft Visual studio** kao razvojno okruženje. Neophodno je uključiti **Universal Windows Platform development** pack.
+
+![alt text][ide-visual-studio]
+
+[ide-visual-studio]: meta/ide-visual-studio.png
+
+Moguće je razvijati **headed i headless aplikacije**, gde će headed varijante imati korisnički interfejs definisan `.xaml` datotekama. Pozadinske aplikacije ne poseduju korisnički interfejs i podržane su na svim uređajima.
+
+Uokviru okruženja je moguće build-ovati aplikacije za arhitekture:
+* `ARM`
+* `x86/x64`
+
+Proces debagiranja se može raditi **lokalno na mašini u simulatoru** gde se aplikacija izvršava u `sandbox-u` lokalnog operativnog sistema kao i svaka druga UWP aplikacija. Jedina je razlika u tome što se u sandboxu sistem nalazi u `Embedded mod-u`. Pristup je moguć svim senzorima i uređajima koji su na mašini, poput web-kamere. Simulatori su pogodni za rano testiranje prototipa.
+
+Sa druge strane, ukoliko je uređaj povezan, može se vršiti deployment aplikacija direktno na uređaj (npr. Raspberry Pi). Tada se mogu očitavati svi senzori i prisupati aktuatorima stvarnog uređaja.
 
 ## Demo aplikacija
