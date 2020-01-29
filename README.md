@@ -157,7 +157,7 @@ Povezivanje uređaja *Azure IoT Device SDK* bibliotekama omogućava razvijanje a
 
 **Azure IoT Edge** je servis koji se može izvršavati nad **Azure IoT Hub-om** embedded uređaja. Koristi se za deployment i rasoređivanje posla nad Hub-om više uređaja. Neki od primera su veštačka inteligencija ili pak biznis logika koji se izvršavaju na uređajima u vidu kontejnera. Ovakvi poslovi se guraju na "edge" sistema gde se izvršavaju i imaju jasnu svrhu. Podaci ne moraju da se procesiraju u cloud-u već odmah na uređaju oslanjajući se na njihov hardver što daje visok nivo real-time performansi.
 
-#### Raspberry Pi
+### Raspberry Pi
 
 Najosnovnije povezivanje Raspberry Pi uređaja na Azure Hub se svodi na njegovu registraciju i slanje podataka sa senzora na cloud. Potrebno je pokrenuti uređaj i razviti minimalnu aplikaciju koja će slati informacije sa senzora.
 
@@ -181,5 +181,10 @@ Podrazumevano je na ploču povezan **BME280 senzor** i LED dioda. Dozvoljeno je 
 [raspberry-simulator]: meta/raspberry-simulator.png
 
 Ovako simulirani uređaj sa predefinisanim izvršnim kodom se može registrovari na Azure IoT Hub zarad testiranja.
+
+#### Instalacija Windows IoT-a na uređaju
+
+Podešavanje uređaja i instalacija *image-a* Windows 10 IoT Core vrši se kroz softver **IoT Dashboard**.
+
 
 ## Demo aplikacija
