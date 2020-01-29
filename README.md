@@ -211,4 +211,10 @@ Nakon podizanja sistema dolazi se do početnog ekrana, kao što je već pomenuto
 
 ### Visual studio kao razvojno okruženje
 
+Kako Windows 10 IoT Core podržava UWP aplikacije, za razvijanje je najpogodnije koristiti **Microsoft Visual studio** kao razvojno okruženje. Neophodno je uključiti **Universal Windows Platform development** pack.
+
+![alt text][ide-visual-studio]
+
+[ide-visual-studio]: meta/ide-visual-studio.png
+
 ## Demo aplikacija
