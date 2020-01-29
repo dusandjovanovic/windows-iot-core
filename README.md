@@ -14,7 +14,7 @@ Menadžment | MDM | MDM
 Podržana arhitektura aplikacija | UWP | UWP, WinForms, etc.
 Podržana arhitektura procesora | x86, x64 i ARM | x86 i x64
 
-**Napomena: Demo aplikacija je razvijana i testirana u Microsoft-ovom okruženju i korišćeni su alati poput Azure Hub-a i Raspberry Pi Microsoft simulatora. Testbed okruženje Fit IoT-Lab nije korišćeno jer ne podržava Windows IoT Core.**
+**Napomena: Demo aplikacija je razvijana i testirana u Microsoft-ovom okruženju i korišćeni su lokalni simualtori (gde se sistem izvršava u `Embedded modu`). Testbed okruženje Fit IoT-Lab nije korišćeno jer ne podržava Windows IoT Core.**
 
 https://www.iot-lab.info/operating-systems/
 
@@ -168,8 +168,6 @@ Neke od neophodnih stvari:
 
 Uređaj je potrebno registrovati na prethodno napravljen Azure Hub. Celokupna procedura je objašnjena [na stranici znanične dokumentacije](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
 
-Nakon registracije treba instalirati **Raspbian operativni sistem** na uređaju i izvršiti neophodna podešavanja mrežnih parametara. Senzor koji će prikupljati podatke treba zatim povezati na Raspberry Pi. Na kraju jedino preostaje pokretanje aplikacije.
-
 #### Raspberry Pi simulator
 
 Moguće je napraviti simulaciju Raspberry Pi uređaja i povezati je na IoT Hub. Senzori mogu da budu simulirani i podaci sa uređaja se mogu iskoristiti za prototip aplikaciju. Simulator je dostupan [ovde](https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted).
@@ -180,7 +178,7 @@ Podrazumevano je na ploču povezan **BME280 senzor** i LED dioda. Dozvoljeno je 
 
 [raspberry-simulator]: meta/raspberry-simulator.png
 
-Ovako simulirani uređaj sa predefinisanim izvršnim kodom se može registrovari na Azure IoT Hub zarad testiranja.
+Ovako simulirani uređaj sa predefinisanim izvršnim kodom se može registrovari na Azure IoT Hub zbog daljeg testiranja.
 
 #### Instalacija Windows IoT-a na uređaju
 
