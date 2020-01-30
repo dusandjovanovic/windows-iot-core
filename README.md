@@ -233,7 +233,7 @@ Sa druge strane, ukoliko je uređaj povezan, može se vršiti deployment aplikac
 
 ## Demo aplikacija
 
-Demo aplikacija je predviđena za Raspberry Pi uređaje. Aplikacija se izvršava u **headed modu** i poseduje korisnički interfejs pa je potrebno priključiti displej na uređaj.
+Demo aplikacija je predviđena za Raspberry Pi uređaje. Aplikacija se izvršava u **headed modu** i poseduje korisnički interfejs pa je potrebno priključiti displej na uređaj. Arhitekturno, ovo je _Universal Windows Platform_ aplikacija koja će se na IoT uređajima izvršavati u **foreground-u** i imati interaktivan korisnički interfejs.
 
 Demo aplikacija ima za zadatak da posmatra **ulaz sa web-kamere** koja je priključena na uređaj (preko usb-a) i **signalizira kada je detektovano lice**. Signalizira se na displeju naznakom u interfejsu i aktuacijom diode koja je je prikačena na jedan od pinova uređaja.
 
