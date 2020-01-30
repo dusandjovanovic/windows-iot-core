@@ -1,0 +1,1 @@
+C:\Users\Dusan\Source\Repos\IOTApp\IoTApp\IoTApp.csproj;x86
