@@ -267,7 +267,7 @@ Iz interfejsa se pokreće snimanje sa web-kamere preko dugmeta `Start capturing 
 
 ### Implementacioni detalji
 
-Prilikom pokretanja aplikacije se inicijalizuju uređaji za snimanje videa i portovi preko API-a koji nudi `Windows.Devices`. Metoda `EnumerateCameras` pronalazi uređaje koji su u mogućnosti snimanja video sadržaja. Sa druge strane, metoda `EnumerateHardware` ostvaruje vezu sa GPIO kontrolerom i konkretnim pinom koji je označen konstantom **DEVICE_PIN_ID**. Na odgovarajućem broju pina treba da se nalazi LED dioda kojom će se upravljati i na početku će se setovati na niski naponski nivo.
+Prilikom pokretanja aplikacije se inicijalizuju uređaji za snimanje videa i portovi preko API-a koji nudi `Windows.Devices`. Metoda `EnumerateCameras` pronalazi uređaje koji su u mogućnosti snimanja video sadržaja. Sa druge strane, metoda `EnumerateHardware` ostvaruje vezu sa GPIO kontrolerom i konkretnim pinom koji je označen konstantom **`DEVICE_PIN_ID`**. Na odgovarajućem broju pina treba da se nalazi LED dioda kojom će se upravljati i na početku će se setovati na niski naponski nivo.
 
 ```c#
 using Windows.Devices.Enumeration;
