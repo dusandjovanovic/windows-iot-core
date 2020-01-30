@@ -232,3 +232,122 @@ Proces debagiranja se može raditi **lokalno na mašini u simulatoru** gde se ap
 Sa druge strane, ukoliko je uređaj povezan, može se vršiti deployment aplikacija direktno na uređaj (npr. Raspberry Pi). Tada se mogu očitavati svi senzori i prisupati aktuatorima stvarnog uređaja.
 
 ## Demo aplikacija
+
+Demo aplikacija je predviđena za Raspberry Pi uređaj. Aplikacija je predviđena za **headed mod** pa je potrebno priključiti displej na uređaj.
+
+Demo aplikacija ima za zadatak da posmatra **ulaz sa web-kamere** koja je priključena na uređaj (preko usb-a) i **signalizira kada je detektovano lice**. Signalizira se na displeju i aktuacijom diode koja je je prikačena na jednom od pinova uređaja.
+
+**Napomena: Zbog neraspoloživosti Raspberry Pi uređaja nije korišćen senzor za prikupljanje informacija, već web-kamera. Uređaj je testiran jedino u simulatoru uokviru Windows sistema, gde se pritom sistem izvršava u `Embedded mod-u`. Iz ovog razloga je jako teško simulirati senzore jer je potrebno ručno pisati unsigned drajvere koji će simulirati fiktivne uređaje.**
+
+### Povezivanje hardvera
+
+Od opreme je potrebno:
+* HDMI i USB kablovi
+* Displej
+* Web-kamera
+* LED dioda, otpornik i jumper žica
+
+Web-kamera se povezuje na jedan od dostupnih USB portova uređaja. Displej se povezuje na HDMI port i neophodan je s obzirom da je aplikacija predviđena za izvršavanje u **headed modu**. LED dioda se treba povezati na jedan od GPIO portova.
+
+![alt text][raspberry-pi-led]
+
+[raspberry-pi-led]: meta/raspberry-pi-led.png
+
+### Funkcije, testiranje i deployment
+
+Kako se izvršava na Raspberry Pi uređaju, treba ga pre svega povezati i izabrati `ARM` kao arhitekturu za build-ovanje. Uređaj se bira kao `Remote Device` i nakon build-ovanja se može na njemu pokrenuti aplikacija.
+
+Kada se koristi lokalno testiranje, aplikacija se izvršava na Windows mašini u simulatoru (embedded mod). Na slici ispod se može videti proces pokretanja i debagiranja aplikacije iz simulatora.
+
+![alt text][raspberry-pi-screen]
+
+[raspberry-pi-screen]: meta/raspberry-pi-screen.png
+
+Iz interfejsa se pokreće snimanje sa web-kamere preko dugmeta `Start recording video`. Video snimak je sačuvan na internoj memoriji. Dok je snimanje aktivno, uz pomoć API-ja za detekciju lica se vodi računa da li je lice prisutno. Čim nečije lice postane prisutno, naznačava se na ekranu i na period od 2000ms se aktuira LED dioda. Za vreme snimanja se prikazuje preview stream uokviru interfejsa.
+
+### Implementacioni detalji
+
+Prilikom pokretanja aplikacije se inicijalizuju uređaji za snimanje videa i portovi preko API-a koji nudi `Windows.Devices`. Metoda `EnumerateCameras` pronalazi uređaje koji su u mogućnosti snimanja video sadržaja. Sa druge strane, metoda `EnumerateHardware` ostvaruje vezu sa GPIO kontrolerom i konkretnim pinom koji je označen konstantom **DEVICE_PIN_ID**. Na odgovarajućem broju pina treba da se nalazi LED dioda kojom će se upravljati i na početku će se setovati na niski naponski nivo.
+
+```c#
+using Windows.Devices.Enumeration;
+using Windows.Devices.Gpio;
+
+...
+
+private async void EnumerateCameras()
+{
+    var devices = await Windows.Devices.Enumeration.DeviceInformation.FindAllAsync(Windows.Devices.Enumeration.DeviceClass.VideoCapture);
+    deviceList = new List<Windows.Devices.Enumeration.DeviceInformation>();
+
+    if (devices.Count > 0)
+    {
+        for (var i = 0; i < devices.Count; i++)
+        {
+            deviceList.Add(devices[i]);
+        }
+        InitCaptureSettings();
+        InitMediaCapture();
+    }
+}
+
+private void EnumerateHardware()
+{
+    pinsList = new List<GpioPin>();
+    var gpio = GpioController.GetDefault();
+
+    if (gpio == null)
+    {
+        Debug.WriteLine("GPIO controller not found.");
+        return;
+    }
+
+    pinsList.Add(gpio.OpenPin(DEVICE_PIN_ID));
+
+    foreach (var pin in pinsList)
+    {
+        pin.Write(GpioPinValue.Low);
+        pin.SetDriveMode(GpioPinDriveMode.Output);
+    }
+}
+```
+
+Pokretanje procesa snimanja aktivira dostpunu web-kameru, inicira snimanje sadržaja u internu memoriju, priprema `mediaCapture` za snimanje i dodaje listener za detekciju lica sa ulaza kamere.
+
+```c#
+private async Task StartMediaCaptureSession()
+{
+    await StopMediaCaptureSession();
+
+    var storageFile = await Windows.Storage.KnownFolders.VideosLibrary.CreateFileAsync("_video.wmv", Windows.Storage.CreationCollisionOption.GenerateUniqueName);
+    fileName = storageFile.Name;
+
+    await mediaCapture.StartRecordToStorageFileAsync(profile, storageFile);
+    await mediaCapture.StartPreviewAsync();
+    isRecording = true;
+}
+```
+
+Ukoliko je lice detektovano, potrebno je to naznačiti na ekranu (uokviru aplikacije) i aktuacijom LED diode. Aktuacija se svodi na dovođenje visokog naponskog nivoa preko GPIO kontrolera u trajanju od dve sekunde.
+
+```c#
+private void ActuateHardware()
+{
+    try
+    {
+        var ledDiode = pinsList[0];
+        ledDiode.Write(GpioPinValue.High);
+
+        Task.Delay(2 * 1000).Wait();
+
+        foreach (var pin in pinsList)
+        {
+            pin.Write(GpioPinValue.Low);
+        }
+    }
+    catch (Exception deviceError)
+    {
+        Debug.WriteLine(deviceError.ToString());
+    }
+}
+```
