@@ -257,7 +257,7 @@ Web-kamera se povezuje na jedan od dostupnih USB portova uređaja. Displej se po
 
 Kako se izvršava na Raspberry Pi uređaju, treba ga pre svega povezati i izabrati `ARM` kao arhitekturu za build-ovanje. Uređaj se bira kao `Remote Device` i nakon build-ovanja se može na njemu izvršiti deployment.
 
-Kada se koristi lokalno testiranje, aplikacija se izvršava na Windows mašini u simulatoru (embedded mod). Na slici ispod se može videti proces pokretanja i debagiranja aplikacije iz simulatora.
+Kada se koristi lokalno testiranje, aplikacija se izvršava na Windows mašini u simulatoru (embedded mod). Na slici ispod se može videti proces pokretanja i debagiranja aplikacije iz simulatora. U ovom slučaju se aplikacija build-uje za `x86` arhitekturu.
 
 ![alt text][raspberry-pi-screen]
 
