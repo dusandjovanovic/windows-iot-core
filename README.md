@@ -263,7 +263,7 @@ Kada se koristi lokalno testiranje, aplikacija se izvršava na Windows mašini u
 
 [raspberry-pi-screen]: meta/raspberry-pi-screen.png
 
-Iz interfejsa se pokreće snimanje sa web-kamere preko dugmeta `Start recording video`. Video snimak se čuva na internoj memoriji. Dok je snimanje aktivno, uz pomoć API-ja za detekciju lica se vodi računa da li je lice prisutno. Čim nečije lice bude detektovano sa ulaza kamere to se **naznačava na ekranu i u trajanu od 2000ms se aktuira LED dioda**. Za vreme snimanja se prikazuje preview stream uokviru interfejsa.
+Iz interfejsa se pokreće snimanje sa web-kamere preko dugmeta `Start capturing video`. Video snimak se čuva na internoj memoriji. Dok je snimanje aktivno, uz pomoć API-ja za detekciju lica se vodi računa o tome da li je lice prisutno u granicama kamere. Čim nečije lice bude detektovano sa ulaza kamere to se **naznačava na ekranu i u trajanu od 2000ms se aktuira LED dioda**. Za vreme snimanja se prikazuje preview stream uokviru interfejsa.
 
 ### Implementacioni detalji
 
