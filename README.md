@@ -233,11 +233,11 @@ Sa druge strane, ukoliko je uređaj povezan, može se vršiti deployment aplikac
 
 ## Demo aplikacija
 
-Demo aplikacija je predviđena za Raspberry Pi uređaj. Aplikacija je predviđena za **headed mod** pa je potrebno priključiti displej na uređaj.
+Demo aplikacija je predviđena za Raspberry Pi uređaje. Aplikacija se izvršava u **headed modu** i poseduje korisnički interfejs pa je potrebno priključiti displej na uređaj.
 
-Demo aplikacija ima za zadatak da posmatra **ulaz sa web-kamere** koja je priključena na uređaj (preko usb-a) i **signalizira kada je detektovano lice**. Signalizira se na displeju i aktuacijom diode koja je je prikačena na jednom od pinova uređaja.
+Demo aplikacija ima za zadatak da posmatra **ulaz sa web-kamere** koja je priključena na uređaj (preko usb-a) i **signalizira kada je detektovano lice**. Signalizira se na displeju naznakom u interfejsu i aktuacijom diode koja je je prikačena na jedan od pinova uređaja.
 
-**Napomena: Zbog neraspoloživosti Raspberry Pi uređaja nije korišćen senzor za prikupljanje informacija, već web-kamera. Uređaj je testiran jedino u simulatoru uokviru Windows sistema, gde se pritom sistem izvršava u `Embedded mod-u`. Iz ovog razloga je jako teško simulirati senzore jer je potrebno ručno pisati unsigned drajvere koji će simulirati fiktivne uređaje.**
+**Napomena: Zbog neraspoloživosti Raspberry Pi uređaja nije korišćen senzor za prikupljanje informacija, već web-kamera. Aplikacije je testirana jedino u simulatoru uokviru Windows sistema, gde se pritom sistem izvršava u `Embedded mod-u`. Iz ovog razloga je jako teško simulirati senzore jer je potrebno ručno pisati unsigned drajvere koji će simulirati fiktivne uređaje. Podrška za simuliranje stvarnih uređaja i senzora nije dostupna.**
 
 ### Povezivanje hardvera
 
@@ -255,7 +255,7 @@ Web-kamera se povezuje na jedan od dostupnih USB portova uređaja. Displej se po
 
 ### Funkcije, testiranje i deployment
 
-Kako se izvršava na Raspberry Pi uređaju, treba ga pre svega povezati i izabrati `ARM` kao arhitekturu za build-ovanje. Uređaj se bira kao `Remote Device` i nakon build-ovanja se može na njemu pokrenuti aplikacija.
+Kako se izvršava na Raspberry Pi uređaju, treba ga pre svega povezati i izabrati `ARM` kao arhitekturu za build-ovanje. Uređaj se bira kao `Remote Device` i nakon build-ovanja se može na njemu izvršiti deployment.
 
 Kada se koristi lokalno testiranje, aplikacija se izvršava na Windows mašini u simulatoru (embedded mod). Na slici ispod se može videti proces pokretanja i debagiranja aplikacije iz simulatora.
 
@@ -263,7 +263,7 @@ Kada se koristi lokalno testiranje, aplikacija se izvršava na Windows mašini u
 
 [raspberry-pi-screen]: meta/raspberry-pi-screen.png
 
-Iz interfejsa se pokreće snimanje sa web-kamere preko dugmeta `Start recording video`. Video snimak je sačuvan na internoj memoriji. Dok je snimanje aktivno, uz pomoć API-ja za detekciju lica se vodi računa da li je lice prisutno. Čim nečije lice postane prisutno, naznačava se na ekranu i na period od 2000ms se aktuira LED dioda. Za vreme snimanja se prikazuje preview stream uokviru interfejsa.
+Iz interfejsa se pokreće snimanje sa web-kamere preko dugmeta `Start recording video`. Video snimak se čuva na internoj memoriji. Dok je snimanje aktivno, uz pomoć API-ja za detekciju lica se vodi računa da li je lice prisutno. Čim nečije lice bude detektovano sa ulaza kamere to se **naznačava na ekranu i u trajanu od 2000ms se aktuira LED dioda**. Za vreme snimanja se prikazuje preview stream uokviru interfejsa.
 
 ### Implementacioni detalji
 
